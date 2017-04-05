@@ -300,8 +300,6 @@ echo_reset_color="$(__make_echo '' 39)"
 
 ############################## BASE THEME ################################
 
-THEME_PROMPT_HOST='\H'
-
 SCM_CHECK=${SCM_CHECK:=true}
 
 SCM_THEME_PROMPT_DIRTY=' ✗'
@@ -317,8 +315,6 @@ SCM_THEME_CURRENT_USER_PREFFIX=' ☺︎ '
 SCM_THEME_CURRENT_USER_SUFFIX=''
 
 CLOCK_CHAR='☆'
-THEME_CLOCK_CHECK=${THEME_CLOCK_CHECK:=true}
-THEME_BATTERY_PERCENTAGE_CHECK=${THEME_BATTERY_PERCENTAGE_CHECK:=true}
 
 SCM_GIT_SHOW_DETAILS=${SCM_GIT_SHOW_DETAILS:=true}
 SCM_GIT_SHOW_REMOTE_INFO=${SCM_GIT_SHOW_REMOTE_INFO:=auto}
@@ -590,12 +586,6 @@ function rbenv_version_prompt {
   fi
 }
 
-function rbfu_version_prompt {
-  if [[ $RBFU_RUBY_VERSION ]]; then
-    echo -e "${RBFU_THEME_PROMPT_PREFIX}${RBFU_RUBY_VERSION}${RBFU_THEME_PROMPT_SUFFIX}"
-  fi
-}
-
 function chruby_version_prompt {
   if declare -f -F chruby &> /dev/null; then
     if declare -f -F chruby_auto &> /dev/null; then
@@ -613,28 +603,6 @@ function chruby_version_prompt {
 
 function ruby_version_prompt {
   echo -e "$(rbfu_version_prompt)$(rbenv_version_prompt)$(rvm_version_prompt)$(chruby_version_prompt)"
-}
-
-function virtualenv_prompt {
-  if [[ -n "$VIRTUAL_ENV" ]]; then
-    virtualenv=`basename "$VIRTUAL_ENV"`
-    echo -e "$VIRTUALENV_THEME_PROMPT_PREFIX$virtualenv$VIRTUALENV_THEME_PROMPT_SUFFIX"
-  fi
-}
-
-function condaenv_prompt {
-  if [[ $CONDA_DEFAULT_ENV ]]; then
-    echo -e "${CONDAENV_THEME_PROMPT_PREFIX}${CONDA_DEFAULT_ENV}${CONDAENV_THEME_PROMPT_SUFFIX}"
-  fi
-}
-
-function py_interp_prompt {
-  py_version=$(python --version 2>&1 | awk '{print "py-"$2;}') || return
-  echo -e "${PYTHON_THEME_PROMPT_PREFIX}${py_version}${PYTHON_THEME_PROMPT_SUFFIX}"
-}
-
-function python_version_prompt {
-  echo -e "$(virtualenv_prompt)$(condaenv_prompt)$(py_interp_prompt)"
 }
 
 function git_user_info {
@@ -671,43 +639,14 @@ function prompt_char {
 }
 
 function clock_char {
-    if [[ "${THEME_CLOCK_CHECK}" = true ]]; then
-        DATE_STRING=$(date +"%Y-%m-%d %H:%M:%S")
-        echo -e "${bold_cyan}$DATE_STRING ${red}$CLOCK_CHAR"
-    fi
+  DATE_STRING=$(date +"%Y-%m-%d %H:%M:%S")
+  echo -e "${bold_cyan}$DATE_STRING ${red}$CLOCK_CHAR"
 }
 
-function battery_char {
-    if [[ "${THEME_BATTERY_PERCENTAGE_CHECK}" = true ]]; then
-        echo -e "${bold_red}$(battery_percentage)%"
-    fi
-}
-
-if [ ! -e $BASH_IT/plugins/enabled/battery.plugin.bash ]; then
-    # if user has installed battery plugin, skip this...
-    function battery_charge (){
-	# no op
-	echo -n
-    }
-
-    function battery_char (){
-	# no op
-	echo -n
-    }
-fi
-
-function aws_profile {
-  if [[ $AWS_DEFAULT_PROFILE ]]; then
-    echo -e "${AWS_DEFAULT_PROFILE}"
-  else
-    echo -e "default"
-  fi
-}
 
 
 ######################## THEME ##################################
 
-# scm theming
 SCM_THEME_PROMPT_PREFIX="|"
 SCM_THEME_PROMPT_SUFFIX=""
 
@@ -716,11 +655,6 @@ SCM_THEME_PROMPT_CLEAN=" ${green}✓${normal}"
 SCM_GIT_CHAR="${green}±${normal}"
 SCM_SVN_CHAR="${bold_cyan}⑆${normal}"
 SCM_HG_CHAR="${bold_red}☿${normal}"
-
-### TODO: openSUSE has already colors enabled, check if those differs from stock
-# LS colors, made with http://geoff.greer.fm/lscolors/
-# export LSCOLORS="Gxfxcxdxbxegedabagacad"
-# export LS_COLORS='no=00:fi=00:di=01;34:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=41;33;01:ex=00;32:*.cmd=00;32:*.exe=01;32:*.com=01;32:*.bat=01;32:*.btm=01;32:*.dll=01;32:*.tar=00;31:*.tbz=00;31:*.tgz=00;31:*.rpm=00;31:*.deb=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.lzma=00;31:*.zip=00;31:*.zoo=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.tb2=00;31:*.tz2=00;31:*.tbz2=00;31:*.avi=01;35:*.bmp=01;35:*.fli=01;35:*.gif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mng=01;35:*.mov=01;35:*.mpg=01;35:*.pcx=01;35:*.pbm=01;35:*.pgm=01;35:*.png=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.xbm=01;35:*.xpm=01;35:*.dl=01;35:*.gl=01;35:*.wmv=01;35:*.aiff=00;32:*.au=00;32:*.mid=00;32:*.mp3=00;32:*.ogg=00;32:*.voc=00;32:*.wav=00;32:'
 
 scm_prompt() {
     CHAR=$(scm_char) 
