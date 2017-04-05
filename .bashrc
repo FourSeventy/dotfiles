@@ -1,4 +1,4 @@
-# aliases
+#################### Aliases ###############################
 alias sl=ls
 alias ls='ls -G'        # Compact view, show colors
 alias la='ls -AF'       # Compact view, show hidden
@@ -17,6 +17,8 @@ alias h='history' # Shell History
 alias md='mkdir -p'
 alias rd='rmdir'
 
+
+################### Dev Settings #########################
 #chruby
 source /usr/local/share/chruby/chruby.sh
 chruby ruby-2.3.4
@@ -25,7 +27,35 @@ chruby ruby-2.3.4
 export GOPATH=$HOME/development/go
 
 
-##################### COLORS ###############################
+################## Sane Defaults ###########################
+
+# Perform file tab completion in a case insensitive fashion
+bind "set completion-ignore-case on"
+
+# Treat hyphens and underscores as equivalent
+bind "set completion-map-case on"
+
+# Append to the history file, don't overwrite it
+shopt -s histappend
+
+# Save multi-line commands as one command
+shopt -s cmdhist
+
+# Record each line as it gets issued
+PROMPT_COMMAND='history -a'
+
+# Huge history. Doesn't appear to slow things down, so why not?
+HISTSIZE=5000
+HISTFILESIZE=100000
+
+# Avoid duplicate entries
+HISTCONTROL="erasedups:ignoreboth"
+
+# Don't record some commands
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+
+
+##################### Colors ###############################
 
 
 function __ {
