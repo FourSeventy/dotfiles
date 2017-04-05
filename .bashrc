@@ -19,12 +19,15 @@ alias rd='rmdir'
 
 
 ################### Dev Settings #########################
-#chruby
-source /usr/local/share/chruby/chruby.sh
-chruby ruby-2.3.4
 
-#go path
-export GOPATH=$HOME/development/go
+#git
+export GIT_EDITOR=vim
+
+
+#source machine specific settings
+if [ -f ./.bashlocal ]; then
+   source ./.bashlocal 
+fi
 
 
 ################## Sane Defaults ###########################
