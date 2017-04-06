@@ -1,10 +1,7 @@
 #################### Aliases ###############################
-alias sl=ls
 alias ls='ls -G'        # Compact view, show colors
-alias la='ls -AF'       # Compact view, show hidden
 alias ll='ls -alh'
 alias l='ls -a'
-alias l1='ls -1'
 alias c='clear'
 
 alias ..='cd ..'         # Go up one directory
@@ -14,9 +11,16 @@ alias -- -='cd -'        # Go back
 
 alias h='history' # Shell History
 
-alias md='mkdir -p'
-alias rd='rmdir'
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
+# Intuitive map function
+# For example, to list all directories that contain a certain file:
+# find . -name .gitattributes | map dirname
+alias map="xargs -n1"
+
+# IP addresses
+alias localip="ipconfig getifaddr en0"
 
 ################### Dev Settings #########################
 
