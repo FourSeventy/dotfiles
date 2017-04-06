@@ -22,6 +22,9 @@ alias map="xargs -n1"
 # IP addresses
 alias localip="ipconfig getifaddr en0"
 
+# pipe into this function to pretty print json
+alias prettyjson='python -m json.tool'
+
 ################### Dev Settings #########################
 
 #git
