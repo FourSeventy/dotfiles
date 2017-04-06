@@ -25,8 +25,8 @@ export GIT_EDITOR=vim
 
 
 #source machine specific settings
-if [ -f ./.bashlocal ]; then
-   source ./.bashlocal 
+if [ -f ./.bashrclocal ]; then
+   source ./.bashrclocal 
 fi
 
 
