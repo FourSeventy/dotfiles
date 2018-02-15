@@ -11,6 +11,8 @@ alias -- -='cd -'        # Go back
 
 alias h='history' # Shell History
 
+alias vimmode='set -o vi' #change bash to vi mode
+
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
