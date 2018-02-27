@@ -32,7 +32,6 @@ alias prettyjson='python -m json.tool'
 #git
 export GIT_EDITOR=vim
 
-
 #source machine specific settings
 if [ -f ./.bashrclocal ]; then
    source ./.bashrclocal 
@@ -685,6 +684,43 @@ function clock_char {
   echo -e "${bold_cyan}$DATE_STRING ${red}$CLOCK_CHAR"
 }
 
+working_directory() {
+	dir=`pwd`
+	in_home=0
+	if [[ `pwd` =~ ^"$HOME"(/|$) ]]; then
+		dir="~${dir#$HOME}"
+		in_home=1
+	fi
+
+	workingdir=""
+	if [[ `tput cols` -lt 110 ]]; then
+		first="/`echo $dir | cut -d / -f 2`"
+		letter=${first:0:2}
+		if [[ $in_home == 1 ]]; then
+			letter="~$letter"
+		fi
+		proj=`echo $dir | cut -d / -f 3`
+		beginning="$letter/$proj"
+		end=`echo "$dir" | rev | cut -d / -f1 | rev`
+
+		if [[ $proj == "" ]]; then
+			workingdir="$dir"
+		elif [[ $proj == "~" ]]; then
+			workingdir="$dir"
+		elif [[ $dir =~ "$first/$proj"$ ]]; then
+			workingdir="$beginning"
+		elif [[ $dir =~ "$first/$proj/$end"$ ]]; then
+			workingdir="$beginning/$end"
+		else
+			workingdir="$beginning/…/$end"
+		fi
+	else
+		workingdir="$dir"
+	fi
+
+	echo -e "${YELLOW}$workingdir${COLOREND} "
+}
+
 
 
 ######################## THEME ##################################
@@ -708,21 +744,13 @@ scm_prompt() {
     fi 
 }
 
-pure_prompt() {
-    ps_host="${bold_blue}\h${normal}";
+prompt() {
     ps_user="${green}\u${normal}";
+    ps_host="${bold_blue}\h${normal}";
     ps_user_mark="${green} $ ${normal}";
-    ps_root="${red}\u${red}";
-    ps_root_mark="${red} # ${normal}"
-    ps_path="${yellow}\w${normal}";
+    ps_path="${yellow}$(working_directory)${normal}";
 
-    # make it work
-    case $(id -u) in
-        0) PS1="$ps_root@$ps_host$(scm_prompt):$ps_path$ps_root_mark"
-            ;;
-        *) PS1="$ps_user@$ps_host$(scm_prompt):$ps_path$ps_user_mark"
-            ;;
-    esac
+    PS1="$ps_user@$ps_host$(scm_prompt):$ps_path$ps_user_mark"
 }
 
-PROMPT_COMMAND=pure_prompt;
+PROMPT_COMMAND=prompt;
