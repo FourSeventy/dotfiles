@@ -740,17 +740,17 @@ scm_prompt() {
         then 
             return
         else 
-            echo "[$(scm_char)$(scm_prompt_info)]"
+            echo "[$(scm_char)$(scm_prompt_info)]:"
     fi 
 }
 
 prompt() {
     ps_user="${green}\u${normal}";
     ps_host="${bold_blue}\h${normal}";
-    ps_user_mark="${green} $ ${normal}";
+    ps_user_mark="${green}$ ${normal}";
     ps_path="${yellow}$(working_directory)${normal}";
 
-    PS1="$ps_user@$ps_host$(scm_prompt):$ps_path$ps_user_mark"
+    PS1="$(scm_prompt)$ps_path$ps_user_mark"
 }
 
 PROMPT_COMMAND=prompt;
