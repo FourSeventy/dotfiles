@@ -1,5 +1,5 @@
 [user]
-	name = FourSeventy
+	name = Mike Signorella
 	email = msiggy@gmail.com
 
 [core]
@@ -7,6 +7,10 @@
 
 [alias]
   co = checkout
+
+  s = status
+  
+  d = diff
 
   prune = fetch --prune
   # Because I constantly forget how to do this
