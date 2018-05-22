@@ -34,7 +34,7 @@ alias vim="nvim"
 ################### Dev Settings #########################
 
 #git
-export GIT_EDITOR=vim
+export GIT_EDITOR=nvim
 
 #source machine specific settings
 if [ -f ./.bashrclocal ]; then
