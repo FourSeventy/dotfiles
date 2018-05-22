@@ -27,6 +27,10 @@ alias localip="ipconfig getifaddr en0"
 # pipe into this function to pretty print json
 alias prettyjson='python -m json.tool'
 
+#vim aliases
+alias vi="nvim"
+alias vim="nvim"
+
 ################### Dev Settings #########################
 
 #git
