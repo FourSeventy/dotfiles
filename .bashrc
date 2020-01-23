@@ -31,6 +31,11 @@ alias prettyjson='python -m json.tool'
 alias vi="nvim"
 alias vim="nvim"
 
+#cheat man page lookup
+function cheat () {
+    curl "cheat.sh/$1"
+  }
+
 ################### Dev Settings #########################
 
 #git
@@ -68,9 +73,6 @@ HISTCONTROL="erasedups:ignoreboth"
 
 # Don't record some commands
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
-
-# Record history timestamps
-HISTTIMEFORMAT='%F %T '
 
 
 ##################### Colors ###############################
