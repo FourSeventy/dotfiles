@@ -2,10 +2,14 @@
 Symlink dotfiles
 
 cd ~
-ln -s ~/.bash_profile .dotfiles/.bash_profile
-ln -s ~/.bashrc .dotfiles/.bashrc
-ln -s ~/.curlrc .dotfiles/.curlrc
-ln -s ~/.gitconfig .dotfiles/.gitconfig
+
+ln -s .dotfiles/.bash_profile ~/.bash_profile
+
+ln -s  .dotfiles/.bashrc ~/.bashrc
+
+ln -s  .dotfiles/.curlrc ~/.curlrc
+
+ln -s  .dotfiles/.gitconfig ~/.gitconfig
 
 
 ## Dev Environment Utilities
