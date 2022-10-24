@@ -16,7 +16,7 @@ ln -s  .dotfiles/.gitconfig ~/.gitconfig
 
 ### iTerm2
 Terminal.
-Use afterglow color scheme git clone https://github.com/yabatadesign/afterglow-itermcolors/
+Use afterglow color scheme https://github.com/yabatadesign/afterglow-itermcolors/
 
 ### Cheat
 Better man pages for linux utilities
