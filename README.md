@@ -18,6 +18,10 @@ ln -s  .dotfiles/.gitconfig ~/.gitconfig
 Terminal.
 Use afterglow color scheme https://github.com/yabatadesign/afterglow-itermcolors/
 
+### MacPorts
+Mac package manager. For use to install utilities and non dev related software.
+https://www.macports.org/
+
 ### Cheat
 Better man pages for linux utilities
 https://github.com/cheat/cheat
