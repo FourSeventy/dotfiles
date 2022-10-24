@@ -14,6 +14,10 @@ ln -s  .dotfiles/.gitconfig ~/.gitconfig
 
 ## Dev Environment Utilities
 
+### iTerm2
+Terminal.
+Use afterglow color scheme git clone https://github.com/yabatadesign/afterglow-itermcolors/
+
 ### Cheat
 Better man pages for linux utilities
 https://github.com/cheat/cheat
