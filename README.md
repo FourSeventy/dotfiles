@@ -46,10 +46,16 @@ Symlink config dotfiles
 cd ~
 ln -s  .dotfiles/.zshrc ~/.zshrc
 ln -s  .dotfiles/.zshrclocal ~/.zshrclocal
+ln -s  .dotfiles/.p10k.zsh ~/.p10k.zsh
+```
+
+Install powerlevel10k theme
+```
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 ```
 
 
-ln -s .dotfiles/.bash_profile ~/.bash_profile
+
 
 
 ln -s  .dotfiles/.curlrc ~/.curlrc
