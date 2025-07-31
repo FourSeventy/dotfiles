@@ -4,11 +4,11 @@
 ### Wezterm
 Terminal
 https://wezterm.org/index.html
-Config found in .wezterm.lua
 
 ### Zsh
-Shell.
-Config found in .zshrc
+Shell
+Uses powerlevel10k theme
+https://github.com/romkatv/powerlevel10k
 
 ### MacPorts
 Mac package manager. For use to install utilities and non dev related software.
@@ -54,11 +54,14 @@ Install powerlevel10k theme
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 ```
 
-
-
-
-
+# Other
+Symlink other conigs
+```
+cd ~
 ln -s  .dotfiles/.curlrc ~/.curlrc
-
 ln -s  .dotfiles/.gitconfig ~/.gitconfig
+```
+
+
+
 
