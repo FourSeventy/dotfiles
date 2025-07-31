@@ -1,30 +1,18 @@
-## Setup
-Symlink dotfiles
-
-cd ~
-
-ln -s .dotfiles/.bash_profile ~/.bash_profile
-
-ln -s  .dotfiles/.bashrc ~/.bashrc
-
-ln -s  .dotfiles/.curlrc ~/.curlrc
-
-ln -s  .dotfiles/.gitconfig ~/.gitconfig
-
 
 ## Dev Environment Utilities
 
-### iTerm2
-Terminal.
-Use afterglow color scheme https://github.com/yabatadesign/afterglow-itermcolors/
+### Wezterm
+Terminal
+https://wezterm.org/index.html
+Config found in .wezterm.lua
+
+### Zsh
+Shell.
+Config found in .zshrc
 
 ### MacPorts
 Mac package manager. For use to install utilities and non dev related software.
 https://www.macports.org/
-
-### Cheat
-Better man pages for linux utilities
-https://github.com/cheat/cheat
 
 ### Silver Searcher
 Better grep utility
@@ -33,3 +21,38 @@ https://github.com/ggreer/the_silver_searcher
 ### lazygit
 Git utility
 https://github.com/jesseduffield/lazygit
+
+
+## Setup
+
+Clone down the repo to your home directory
+```
+cd ~
+git clone git@github.com:FourSeventy/dotfiles.git ~
+```
+
+
+# Wezterm
+Install binary from website https://wezterm.org/installation.html
+Symlink config dotfile
+```
+cd ~
+ln -s .dotfiles/.wezterm.lua ~/.wezterm.lua
+```
+
+# Zsh
+Symlink config dotfiles
+```
+cd ~
+ln -s  .dotfiles/.zshrc ~/.zshrc
+ln -s  .dotfiles/.zshrclocal ~/.zshrclocal
+```
+
+
+ln -s .dotfiles/.bash_profile ~/.bash_profile
+
+
+ln -s  .dotfiles/.curlrc ~/.curlrc
+
+ln -s  .dotfiles/.gitconfig ~/.gitconfig
+
