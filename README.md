@@ -2,13 +2,25 @@
 Symlink dotfiles
 
 cd ~
-ln -s ~/.bash_profile .dotfiles/.bash_profile
-ln -s ~/.bashrc .dotfiles/.bashrc
-ln -s ~/.curlrc .dotfiles/.curlrc
-ln -s ~/.gitconfig .dotfiles/.gitconfig
+
+ln -s .dotfiles/.bash_profile ~/.bash_profile
+
+ln -s  .dotfiles/.bashrc ~/.bashrc
+
+ln -s  .dotfiles/.curlrc ~/.curlrc
+
+ln -s  .dotfiles/.gitconfig ~/.gitconfig
 
 
 ## Dev Environment Utilities
+
+### iTerm2
+Terminal.
+Use afterglow color scheme https://github.com/yabatadesign/afterglow-itermcolors/
+
+### MacPorts
+Mac package manager. For use to install utilities and non dev related software.
+https://www.macports.org/
 
 ### Cheat
 Better man pages for linux utilities
