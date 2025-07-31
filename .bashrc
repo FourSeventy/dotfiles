@@ -763,3 +763,4 @@ prompt() {
 }
 
 PROMPT_COMMAND=prompt;
+. "$HOME/.cargo/env"
