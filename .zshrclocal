@@ -27,3 +27,5 @@ export NODE_OPTIONS=--openssl-legacy-provider
 #ruby
 source /opt/local/share/chruby/chruby.sh
 chruby ruby-3.3.7
+
+alias claude="/Users/michael/.claude/local/claude"

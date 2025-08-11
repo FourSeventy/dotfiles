@@ -24,6 +24,12 @@ config.font =wezterm.font({ family = 'Hack Nerd Font Mono', weight = 'Bold' })
 -- config.freetype_load_target = 'Normal'
 -- config.freetype_render_target = 'HorizontalLcd'
 
+-- dim the inactive pane
+config.inactive_pane_hsb = {
+  saturation = 0.6,
+  brightness = 0.5,
+}
+
 -- Removes the title bar, leaving only the tab bar. Keeps
 -- the ability to resize by dragging the window's edges.
 -- On macOS, 'RESIZE|INTEGRATED_BUTTONS' also looks nice if
@@ -46,6 +52,40 @@ config.use_dead_keys = false
 config.scrollback_lines = 10000
 config.adjust_window_size_when_changing_font_size = false
 config.hide_tab_bar_if_only_one_tab = true
+
+
+-- set up mouse bindings
+config.mouse_bindings = {
+    -- Disable the default click behavior including hyperlink click
+    {
+      event = { Up = { streak = 1, button = "Left"} },
+      mods = "NONE",
+      action = wezterm.action.CompleteSelection 'ClipboardAndPrimarySelection',
+    },
+    -- Ctrl-click will open the link under the mouse cursor
+    {
+        event = { Up = { streak = 1, button = "Left" } },
+        mods = "CTRL",
+        action = wezterm.action.OpenLinkAtMouseCursor,
+    },
+    -- Disable the Ctrl-click down event to stop programs from seeing it when a URL is clicked
+    {
+        event = { Down = { streak = 1, button = "Left" } },
+        mods = "CTRL",
+        action = wezterm.action.Nop,
+    }
+}
+
+-- set up key bindings
+config.keys = {
+  {
+    key = 'X',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action_callback(function(window, pane)
+      window:maximize()
+    end),
+  },
+}
 
 
 -- Finally, return the configuration to wezterm:
