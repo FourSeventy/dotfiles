@@ -50,9 +50,10 @@ PS1='%F{blue}%B%~%b%f %F{green}❯%f '
 
 #Set up history
 HISTFILE=~/.zhistory
-HISTSIZE=100000
+HISTSIZE=10000
 SAVEHIST=100000
 setopt inc_append_history
+alias history='history -10000'
 
 #load completions
 autoload -U compinit && compinit
