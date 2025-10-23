@@ -49,9 +49,12 @@ front_end = "WebGpu"
 
 -- random settings
 config.use_dead_keys = false
-config.scrollback_lines = 10000
+config.scrollback_lines = 100000
 config.adjust_window_size_when_changing_font_size = false
 config.hide_tab_bar_if_only_one_tab = true
+
+--sound settings
+config.audible_bell="Disabled"
 
 
 -- set up mouse bindings
