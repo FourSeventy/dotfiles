@@ -8,6 +8,7 @@ export PATH=$PATH:/usr/local/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/.local/bin
 
 #add ssh key
 ssh-add --apple-use-keychain ~/.ssh/google_compute_engine
@@ -27,5 +28,3 @@ export NODE_OPTIONS=--openssl-legacy-provider
 #ruby
 source /opt/local/share/chruby/chruby.sh
 chruby ruby-3.3.7
-
-alias claude="/Users/michael/.claude/local/claude"
